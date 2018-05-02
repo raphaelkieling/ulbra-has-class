@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "express-validator": "5.1.2",
+    "moment": "2.22.1"
+  }
+}
