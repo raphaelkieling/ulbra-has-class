@@ -6,6 +6,7 @@ const app = require('../config/express');
 chai.use(chaiHttp);
 
 let token;
+let idCreated;
 
 describe('Holiday', () => {
     it('Should login with an user', done => {
@@ -36,7 +37,8 @@ describe('Holiday', () => {
                 .end((err, res) => {
                     expect(res).to.have.status(200);
                     expect(res.body).to.be.an('object');
+                    idCreated = res.body.id
                     done();
                 })
-        })
+        });
 })

@@ -2,8 +2,10 @@ const router = require('express').Router();
 const db = require('../models');
 const { error } = require('../utils/response');
 const auth = require('../middlewares/auth');
+const validatorMiddleware = require('../middlewares/validator');
+const validator = require('../validator/holiday');
 
-router.get('',  async (req, res) => {
+router.get('', async (req, res) => {
     let response = await db.sequelize.models.holidays.findAll().catch(err => error(err)(res));
     res.send(response);
 });
@@ -13,7 +15,7 @@ router.get('/:id', async (req, res) => {
     res.send(response);
 });
 
-router.post('', auth, async (req, res) => {
+router.post('', auth, validator.create, validatorMiddleware, async (req, res) => {
     let {
         dateHoliday,
         description
@@ -27,7 +29,7 @@ router.post('', auth, async (req, res) => {
     res.send(response);
 });
 
-router.put('/:id', auth, async (req, res) => {
+router.put('/:id', auth, validator.create, validatorMiddleware, async (req, res) => {
     let {
         dateHoliday,
         description
