@@ -26,6 +26,48 @@ O padrão de resposta
         error: objeto ou string
     }
 ```
+### User
+> url-da-api/api/v1/user
+---
+| Method  | URL | Use to|
+| - | - | -|
+| GET  | / | Retorna todos os usuários|  
+| GET  | / id  | Retorna apenas um usuario pelo id|
+| POST  | / auth  | Faz login no sistema é retornado um token|
+| POST  | / register  | Registra-se no sistema (não recebe o token aqui)|
+
+> / POST **BODY** auth
+``` json
+    {
+        "username":"username",
+        "passowrd":"password"
+    }
+``` 
+
+> / POST **RESPONSE** auth
+``` json
+    {
+            "data": {
+            "token": "token que deve ser colocado no cabeçalho x-auth",
+            "user": {
+                "id": "UUID",
+                "username": "username",
+                "password": "password MD5",
+                "createdAt": "UTC",
+                "updatedAt": "UTC"
+            }
+        }
+    }
+``` 
+
+> / POST **BODY** register
+``` json
+    {
+        "username":"username",
+        "passowrd":"password"
+    }
+``` 
+
 ### Holiday
 ---
 > url-da-api/api/v1/holiday
@@ -39,7 +81,8 @@ O padrão de resposta
 | PUT |/ id| Edita um dia pelo id|
 | DELETE|/ id| Delete um dia
 
-Envio de objetos
+
+> / POST - PUT **BODY**
 ``` json
     {
         "dateHoliday":"dd/mm/yyyy",
