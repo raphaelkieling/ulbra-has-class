@@ -96,7 +96,7 @@ Receberá no objeto uma propriedade _token_.
 O token deve ir no cabeçalho da requisição
 ```json
     {
-        x-auth: "Bearer _token_do_login_"
+        "x-auth": "Bearer _token_do_login_"
     }
 ```
 
