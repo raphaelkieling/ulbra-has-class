@@ -1,16 +1,23 @@
 const error = (err) => {
     return (res) => {
-        res.status(500).send(errorObject(err.message))
+        res.status(500).send(errorResponse(err.message))
     }
 }
 
-const errorObject = error => {
+const errorResponse = error => {
     return {
         error
     }
 }
 
+const dataResponse = data => {
+    return {
+        data
+    }
+}
+
 module.exports = {
     error,
-    errorObject
+    errorResponse,
+    dataResponse
 }

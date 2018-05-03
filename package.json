@@ -20,6 +20,7 @@
     "express-validator": "5.1.2",
     "istanbul": "0.4.5",
     "jsonwebtoken": "8.2.1",
+    "md5": "2.2.1",
     "moment": "2.22.1",
     "mysql2": "1.5.3",
     "paretojs": "3.7.0",
