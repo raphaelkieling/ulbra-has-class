@@ -18,12 +18,12 @@ O padrão de resposta
 ```json
     ...Em caso de sucesso
     {
-        data: array ou objeto
+        "data": "array ou objeto"
     }
 
     ...Em caso de erro
     {
-        error: objeto ou string
+        "error": "objeto ou string"
     }
 ```
 ### User
